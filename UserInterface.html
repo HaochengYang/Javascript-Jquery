@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event Object</title>
+  </head>
+  <body>
+	<form action="" method="POST">
+	    <label for="username">Username: </label>
+		<input id="username" name="username" type="text">
+		<label for="Password">Password: </label>
+		<input id="Password" name="Password" type="password">
+	</form>
+    <script>
+     function setup(){
+	    var textInput;
+		textInput = document.getElementById("username");
+		textInput.focus();
+	 }
+	 window.addEventListener('load',setup,false);
+    </script>
+  </body>
+</html>

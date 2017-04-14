@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event Object</title>
+  </head>
+  <body>
+	<form id="formSingup" action="" method="POST">
+	    <label for="package1">Select Package: </label>
+	    <select id="package" name="package1">
+			<option value="year">1 year &#36(50)</option>
+			<option value="monthly">monthly &#36(5)</option>
+			<option value="3year">2 year &#36(80)</option>
+		</select>
+		<p style="color:green;" id="packagehint"></p>
+		
+		<p><input type="checkbox" id="terms"><a style="text-decoration:none;" href="https://google.com">Check to agree to Terms &#38 condition</a><p>
+		<p style="color:red;" id="termsHint"></p>
+		
+		<input type="submit" value="Next">
+	</form>
+    <script>
+	var elform, elpackage, elpackagehint, elterms, eltermshint
+	elform = document.getElementById("formSingup");
+	elpackage = document.getElementById("package");
+	elpackagehint = document.getElementById("packagehint");
+	elterms = document.getElementById("terms");
+	eltermshint = document.getElementById("termsHint");
+	
+	function packageHint1(){
+		var package = this.options[this.selectedIndex].value;
+	if(package == 'monthly'){
+		elpackagehint.innerHTML = "Save &#36 10 if you pay 1 year";
+	}else{
+		elpackagehint.innerHTML = "Nice choice";
+	   }
+	}
+	
+	function CheckTerms(event){
+	  if(!elterms.checked){
+		eltermshint.innerHTML = "You must Agree to terms";
+		event.preventDefault();
+	  }
+	}
+	
+	elform.addEventListener('submit',CheckTerms,false);
+	elpackage.addEventListener('change',packageHint1,false);
+	
+	
+    </script>
+  </body>
+</html>

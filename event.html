@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event Listeners</title>
+  </head>
+  <body>
+    <form method="POST" action="http://www.google.com">
+	
+    <p>UserName: <input type="text" id="username"></p>
+    <p id="valiUsername" style="color:red;"></p>
+	
+	<p>Password: <input type="password" id="Password"></p>
+    <p id="valiPassword" style="color:red;"></p>
+	
+	<p>Confirm Password: <input type="password" id="ConfirmPassword"></p>
+    <p id="valiConfirmPassword" style="color:red;"></p>
+	<input type="submit" value="submit">
+	</form>
+    <script>
+      function CheckUserName(e, minlength){
+	    var el;
+        var elementMessage = document.getElementById("valiUsername");
+		if(!e){
+			e = window.event;
+		}
+		el = e.target || e.srcElement;
+		elementMessage = el.nextSibling;
+        if(el.value.length < minlength){
+          elementMessage.textContent = "UserName must be more than 5 Charactors.";
+        }else{
+          elementMessage.textContent ="";
+        }
+      }
+      var elusername = document.getElementById("username");
+	  if(elusername.addEventListener){
+      elusername.addEventListener('blur',function(e){CheckUserName(e,5)},false);
+	  }else{
+		elusername.attachEvent('onblur',function(e){CheckUserName(e,5)});
+	  }
+	  
+	  function CheckPassword(){
+	    var elementMessage = document.getElementById("valiPassword");
+		var elePassword = document.getElementById("");
+		var RegularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+		if(this.value.length < 6){
+		   elementMessage.textContent="Password must be 6 Charactors Long";
+		}else if(!RegularExpression.test(Password)){
+		   elementMessage.textContent= "Password should Contain atleast one number and one special Charactor";
+		}else{
+		   elementMessage.textContent="";
+		}
+	  }
+	  var elPassword = document.getElementById("Password");
+	  if(elPassword.addEventListener){
+		elPassword.addEventListener('blur',CheckPassword,false);
+	  }else{elPassword.attachEvent('onblur',CheckPassword)}
+	  
+	  
+	  function CheckConfirmPassword(){
+	    var elementMessage = document.getElementById("valiConfirmPassword");
+		var Password = document.getElementById("Password");
+		if(this.value != Password.value){
+			elementMessage.textContent = "The password is not matched!"
+		}else{
+			elementMessage.textContent="";
+		}
+	  }
+	  var elConfirmPassword = document.getElementById("ConfirmPassword")
+	  if(elConfirmPassword.addEventListener){
+	  elConfirmPassword.addEventListener('blur',CheckConfirmPassword,false);
+	  }else{
+		elConfirmPassword.attachEvent('onblur',CheckConfirmPassword)
+	  }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HTML EVENTS</title>
+  </head>
+  <body>
+	<form id="" action="" method="POST">
+	    
+	</form>
+    <script>
+    function setup(){
+	 var textInput;
+	 textInput = document.getElementById('Message');
+	 textInput.focus();
+	}
+	
+	window.addEventListener('DOMContentLoaded', setup,false);
+	
+	window.addEventListener('beforeunload',function(event){
+		return 'You have changes that have not been saved....'
+	}, false);
+    </script>
+  </body>
+</html>

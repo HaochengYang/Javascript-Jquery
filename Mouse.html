@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event Object</title>
+  </head>
+  <body>
+
+    <script>
+	var Message = '<div class=\"header\"><a id=\"close\" href="#">Close X</a></div>';
+	Message +='<div><h2>System Maintenance</h2>';
+	Message +='Our servers are being update bewteen 3 and 4 a.m.';
+	Message +='During this time, there may be minor disruptions to service.</div>';
+	
+	var elNote = document.createElement('div');
+	elNote.setAttribute('id','note');
+	elNote.innerHTML = Message;
+	document.body.appendChild(elNote);
+	
+	function dismissNote(){
+		document.body.removeChild(elNote);
+	}
+	
+	var elClose = document.getElementById('close');
+	elClose.addEventListener('click',dismissNote,false);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery EVENTS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
+  </head>
+  <body>
+	<div id="page">
+		<h1 id="header"></h1>
+		<h2>Buy Groceries</h2>
+		<ul>
+			<li id="one" class="hot"><em>Fresh</em></li>
+			<li id="two" class="hot">Pine Nuts</li>
+			<li id="three" class="hot">honey</li>
+			<li id="four">balsamic vinegar</li>
+		</ul>
+		
+		<div id="newItemButton"><button href="#" id="showForm">New Item</button></div>
+		
+		<form id="newItemForm">
+		 <input type="text" id="itemDescription"  placeholder="Add Description"/>
+		 <input type="submit" id="addButton" value="add"/>
+		</form>
+		
+	</div>
+	<script>
+	$(function(){
+		var newItemButtons = $('#newItemButton');
+		var newItemForms = $('#newItemForm');
+		var textInput = $('input:text');
+		$newItemButtons.show();
+		$newItemForms.hide();
+		
+		$('#showForm').on('click',function(){
+			$newItemButtons.hide();
+			$newItemForms.show();
+		});
+		
+		$newItemForm.on('submit',function(e){
+			e.preventDefault();
+			var newText = $('input:text').val();
+			$('li:last').after('<li>'+ newText+'</li>');
+			$newItemButtons.show(500);
+			$newItemForms.hide(500);
+			$textInput.val('');
+		});
+	});
+    </script>
+  </body>
+</html>

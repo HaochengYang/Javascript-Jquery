@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event Object</title>
+  </head>
+  <body>
+	<form action="" method="POST">
+	    <label for="username1">Username: </label>
+		<input id="username" name="username1" type="text">
+		<p style="color:red;" id="Valiusername"></p>
+		<label for="Password">Password: </label>
+		<input id="Password" name="Password" type="password">
+		<p style="color:red;" id="ValiPassword"></p>
+	</form>
+    <script>
+	var elUsername = document.getElementById("username");
+    function CheckUserName(minLength){
+	var Message = document.getElementById("Valiusername");
+	if(elUsername.value.length < minLength){
+		Message.textContent = "The Username must be more than 5 chracters";
+	}else {
+		Message.textContent ="";
+		}
+	}
+	
+	function TipUsername(minLength){
+	var Message = document.getElementById("Valiusername");
+	if(elUsername.value.length < minLength){
+		Message.textContent="The Username is suggested more than 5 Charactors";
+	  }else{
+	   Message.textContent="";
+	  }
+	}
+	
+	if(elUsername.addEventListener){
+		elUsername.addEventListener('focus',function(){TipUsername(5)},false);
+		elUsername.addEventListener('blur',function(){CheckUserName(5)},false);
+	}else{
+	    elUsername.attachEvent('onfocus',function(){TipUsername(5)},false);
+		elUsername.attachEvent('onblur', function(){TipUsername(5)},false);
+	}
+    </script>
+  </body>
+</html>

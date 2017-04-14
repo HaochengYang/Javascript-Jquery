@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KeyBord Object</title>
+  </head>
+  <body>
+	<textarea type="text" id="message" rows="5" cols="40" placeholder="Please Enter Your Text"></textarea>
+	<p style="color:red;" id="charLeft"></p>
+	<p style="color:red;" id="lastKey"></p>
+    <script>
+	var el;
+	function CharCount(e){
+		var textEntered, CharDisplay, counter, lastKey;
+		textEntered = document.getElementById("message").value;
+		charDisplay = document.getElementById("charLeft");
+		counter =(180-(textEntered.length));
+		charDisplay.textContent = counter;
+		
+		lastKey = document.getElementById("lastKey");
+		lastKey.textContent = "Last key in ASCII code: " + e.keyCode;
+	}
+	el = document.getElementById("message");
+	el.addEventListener('keypress',CharCount,false);
+    </script>
+  </body>
+</html>
