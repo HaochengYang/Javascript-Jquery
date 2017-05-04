@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+
+  </head>
+  <body>
+	<div id="information">
+	
+	</div>
+	<script>
+	
+		);
+</script>
+  </body>
+</html>

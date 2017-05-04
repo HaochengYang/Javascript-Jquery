@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery EVENTS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
+  </head>
+  <body>
+	<nav>
+		<a href="jq-load.html" class='current'>Home</a>
+		<a href="jq-load2.html">Route</a>
+		<a href="jq-load3.html">Toys</a>
+	</nav>
+    <section id="content">
+	  <div id='container'>
+		<h4>Content Goes here</h4>
+	  </div>
+	</section>
+	<script>
+		$(document).ready(function(){
+			    $('nav a').on('click', function(e){
+		e.preventDefault();
+		var url = this.href;
+		
+		$('nav a.current').removeClass('current');
+		$(this).addClass('current');
+		
+		$('#container').remove();
+		$('#content').load(url + '#content').hide().fadeIn('slow');
+	});
+		});
+	</script>
+  </body>
+</html>

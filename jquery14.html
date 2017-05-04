@@ -16,18 +16,15 @@
 			<li id="three" class="hot">honey</li>
 			<li id="four">balsamic vinegar</li>
 		</ul>
-		<p>I like it and I just piss it off</p>
 		<div id="notes"></div>
 	</div>
 	<script>
 	$(function(){
-	var $p = $('p');
-	var $cloneContent = $p.clone();
-	$p.remove();
-	$cloneContent.insertAfter('h2');
-	
-	var moveItem = $('#one').detach();
-	$moveItem.appendTo('ul');
+	var listHeight = $('#page').height();
+	$('ul').append('<p>'+listHeight +' px</p>');
+	$('li').width('50%');
+	$('li#one').width(125);
+	$('li#two').width('75%');
 	});
     </script>
   </body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<style>
+      #map {
+        height: 50%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+	<div id="map"></div>
+	<script>
+		var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(40.782710,-73.965310),
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		zoom:13
+        });
+      }
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx3bVWiMKBSu5H51yqh4-ocjHe4cU9CCA&callback=initMap" async defer></script>
+	</body>
+</html>

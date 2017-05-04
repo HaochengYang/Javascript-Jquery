@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+  </head>
+  <body>
+	<div id="FormDate">
+			<h2>Find the area of a wall:</h2>
+	</div>
+	<script>
+	var contact ={
+	"London":{"Tel":"+044(0)207-964-0128","Country":"UK"},
+	"Sydney":{"Tel":"+61(0)207-964-0128","Country":"AUSTRALIA"},
+	"New York":{"Tel":"+1(0)207-964-0128","Country":"USA"}
+	}
+	console.table(contact);
+	
+	var city, contactDetails;
+	contactDetails ="";
+	$.each(contact,function(city, contact){
+		contactDetails += city + ':'+ contact.Tel +'</br>';
+	});
+	$('h2').after('<p>'+contactDetails+'</p>')
+	</script>
+	</body>
+</html>

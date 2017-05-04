@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery EVENTS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  </head>
+  <body>
+    <div id="loc">
+		<form>
+			<label for="username">UserName: </label>
+			<input type="text" name="username" id='username'>
+			<label for="answer">Answer: </label>
+			<input type="text" name="answer" id='answer'>
+			<input type="submit" value="submit">
+		</form>
+	</div>
+	<script>
+	if(Modernizr.sessionStorage){
+		var txtUserName = document.getElementById('username');
+		var txtAnswer = document.getElementById('answer');
+		
+		txtUserName.value = sessionStorage.getItem('username');
+		txtAnswer.value = sessionStorage.getItem('answer');
+		
+		txtUserName.addEventListener('input',function(){
+		sessionStorage.setItem('username',txtUserName.value);
+		},false);
+		
+		txtAnswer.addEventListener('input',function(){
+		sessionStorage.setItem('answer',txtAnswer.value);
+		},false);
+	}
+	</script>
+  </body>
+</html>

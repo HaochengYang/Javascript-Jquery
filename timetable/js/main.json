@@ -1,0 +1,16 @@
+{
+ "CA":[
+	{
+	"time":"09.00",
+	"title":"Intro to 3D Modeling"
+	},
+	{
+	"time":"10.00",
+	"title":"Circuit Hacking"
+	},
+	{
+	"time":"11.30",
+	"title":"Arduino Antics"
+	}
+ ]
+}

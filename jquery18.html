@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery EVENTS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Geolocation/1.0.50/jquery.geolocation.js"></script>
+  </head>
+  <body>
+    <div id="loc">
+	
+	</div>
+	<script>
+		var elMap = document.getElementById('loc');
+		var msg = "sorry, we were unable to get your location."
+		
+		if(Modernizr.geolocation){
+			navigator.geolocation.getCurrentPosition(success,fail);
+			elMap.textContent = 'Checking Location...'
+		}else{
+			elMap.textContent = msg;
+		}
+		
+		function success(position){
+			msg= '<h3>Longitude:<br>';
+			msg= position.coords.latitude + '</h3>';
+			msg= '<h3>Latitude:<br>';
+			msg= position.coords.longitude + '</h3>';
+			elMap.innerHTML = msg;
+		}
+		
+		function fail(msg){
+			elMap.textContent =msg;
+			console.log(msg.code);
+		}
+	</script>
+  </body>
+</html>

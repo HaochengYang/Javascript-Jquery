@@ -1,0 +1,13 @@
+.accordion-panel{
+	display:none;
+}
+#accordion{
+	list-style:none;
+	list
+}
+.accordion-control{
+	width:180px;
+	background-color:black;
+	color:white;
+	font-size:18px;
+}

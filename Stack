@@ -1,0 +1,38 @@
+var Stack = (function(){
+  function Stack(){
+    this.DataStore =[];
+    this.top =0;
+  }
+  Stack.prototype.push = function(item){
+   this.DataStore[this.top] = item;
+   this.top +=1;
+  }
+  Stack.prototype.pop = function(){
+   var output =  this.DataStore[this.top];
+   for(var i = this.top; i>=0; i--){
+     this.DataStore[i] = this.DataStore[i-1];
+   }
+   this.top -=1;
+   return output;
+  }
+  Stack.prototype.display = function(){
+    var top = this.top;
+    var DataStore = this.DataStore;
+    if(top){
+      console.log(this.top);
+    }else{
+      for(var i = this.top; i>=0; i--){
+      return DataStore[i];
+      }
+    }
+  }
+  return Stack;
+})();
+
+var stack = new Stack();
+stack.push('one');
+stack.push('two');
+stack.push('three');
+stack.push('four');
+stack.pop();
+stack.display();

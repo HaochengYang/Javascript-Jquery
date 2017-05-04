@@ -1,0 +1,35 @@
+var Queue = (function(){
+  function Queue(){
+    this.DataStore = [];
+    this.back =0;
+  }
+  Queue.prototype.enqueue = function(item){
+    this.DataStore[this.back] = item;
+    this.back +=1;
+  }
+  Queue.prototype.dequeue = function(item){
+  var output = this.DataStore[0];
+  for(var i= 1;i<this.back;i++){
+    this.DataStore[i-1] = this.DataStore[i];
+  }
+  this.back--;
+  return output;
+  }
+  Queue.prototype.display = function(item){
+   for(var i=0;i<this.back;i++){
+     return this.DataStore[i];
+   }
+  }
+  return Queue
+})();
+
+var queue = new Queue();
+queue.enqueue("Bird");
+queue.enqueue("Magic");
+queue.enqueue("Jordan");
+queue.enqueue("Kobe");
+queue.enqueue("Shaq");
+queue.display();
+console.log("You can stop waiting Bird");
+queue.dequeue();
+queue.display();

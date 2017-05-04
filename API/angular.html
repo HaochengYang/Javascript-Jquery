@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  </head>
+  <body>
+	<div id="information">
+		<table ng-controller="product">
+			<tr><td>Item: </td><td>{{description}}</td></tr>
+			<tr><td>Cost: </td><td>{{cost}}</td></tr>
+			<tr><td>Qty: </td><td><input type="number" {{ng-model="qty"}}></td></tr>
+			<tr><td>Subtotal: </td><td>{{qty*cost | currency}}</td></tr>
+		</table>
+	</div>
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('product', function($scope) {
+		$scope.description ='Single ticket';
+		$scope.cost = 8;
+		$scope.qty =1;
+		}
+		
+		);
+</script>
+  </body>
+</html>

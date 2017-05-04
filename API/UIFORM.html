@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery EVENTS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdn.bootcss.com/jquery.form/4.2.1/jquery.form.js"></script>
+  </head>
+  <body>
+	<h3>Find Accomandation</h3>
+	<form>
+		<p id="price">
+			<label for="amount">Price Range: </label>
+			<input type="text" id="amount" name="amount">
+		</p>
+		<div id="price-range"></div>
+		<p>
+			<label for="arrival">Arrival Date: </label>
+			<input type="text" id="arrival" name="arrival">
+		</p>
+		<input type="submit" value="Find a Hotel">
+	</form>
+	<script>
+	$(document).ready(function(){
+
+  $('#arrival').datepicker();      // Turn input to JQUI datepicker
+
+  var $amount = $('#amount');      // Cache the price input
+  var $range = $('#price-range');  // Cache the <div> for the price range
+  $('#price-range').slider({       // Turn price-range input into a slider
+    range: true,                   // If it is a range it gets two handles
+    min: 0,                        // Minimum value
+    max: 400,                      // Maximum value
+    values: [175, 300],            // Values to use when the page loads 
+    slide: function(event, ui) {   // When slider used update amount element
+      $amount.val('$' + ui.values[0] + ' - $' + ui.values[1]);
+    }
+  });
+  $amount                          // Set initial values of amount element
+    .val('$' + $range.slider('values', 0)     // A $ sign then lower range
+    + ' - $' + $range.slider('values', 1)); // A $ sign then higher range
+
+});
+	</script>
+  </body>
+</html>
